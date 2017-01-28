@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ParcelableDemo.iml" filepath="$PROJECT_DIR$/ParcelableDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GithubUserList.iml" filepath="$PROJECT_DIR$/GithubUserList.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
