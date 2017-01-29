@@ -26,7 +26,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.example.parcelabledemo.MainActivity">
+    tools:context="com.android.example.githubuserlist.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_user_list"

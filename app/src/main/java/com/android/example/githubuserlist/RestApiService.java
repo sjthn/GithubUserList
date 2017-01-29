@@ -20,30 +20,19 @@
  * SOFTWARE.
  */
 
-package com.android.example.parcelabledemo;
+package com.android.example.githubuserlist;
 
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * Created by NIYATI on 1/24/2017.
  */
 
-public class RestApiBuilder {
+public interface RestApiService {
 
-    public static final String BASE_URL = "https://api.github.com";
-
-    private Retrofit retrofit;
-
-    public RestApiBuilder() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
-
-    public RestApiService getService() {
-        return retrofit.create(RestApiService.class);
-    }
+    @GET("/search/users")
+    Call<UserList> getUserList(@Query("q") String filter);
 
 }

@@ -21,7 +21,7 @@
   -->
 
 <resources>
-    <string name="app_name">Parcelable Demo</string>
+    <string name="app_name">Github User List</string>
     <string name="user_name">Name: %s</string>
     <string name="user_url">URL: %s</string>
 </resources>

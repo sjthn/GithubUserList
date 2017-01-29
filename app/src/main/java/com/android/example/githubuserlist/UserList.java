@@ -20,30 +20,28 @@
  * SOFTWARE.
  */
 
-package com.android.example.parcelabledemo;
+package com.android.example.githubuserlist;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import com.squareup.picasso.Picasso;
+import java.util.List;
 
-public class UserDetailActivity extends AppCompatActivity {
+/**
+ * Created by NIYATI on 1/24/2017.
+ */
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_detail);
-        ImageView avatarImageView = (ImageView) findViewById(R.id.imageview_user_detail_avatar);
-        TextView userNameTextView = (TextView) findViewById(R.id.textview_user_detail_name);
-        TextView userUrlTextView = (TextView) findViewById(R.id.textview_user_detail_url);
+public class UserList {
+    @SerializedName("items")
+    @Expose
+    private List<User> items = null;
 
-        User user = getIntent().getParcelableExtra("user");
-
-        Picasso.with(this).load(user.getAvatarUrl()).into(avatarImageView);
-        userNameTextView.setText(getString(R.string.user_name, user.getLogin()));
-        userUrlTextView.setText(getString(R.string.user_url, user.getHtmlUrl()));
-
+    public List<User> getItems() {
+        return items;
     }
+
+    public void setItems(List<User> items) {
+        this.items = items;
+    }
+
 }

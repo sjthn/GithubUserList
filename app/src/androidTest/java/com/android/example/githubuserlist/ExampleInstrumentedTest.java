@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.android.example.parcelabledemo;
+package com.android.example.githubuserlist;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

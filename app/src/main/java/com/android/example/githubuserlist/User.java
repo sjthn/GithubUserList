@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.android.example.parcelabledemo;
+package com.android.example.githubuserlist;
 
 import android.os.Parcel;
 import android.os.Parcelable;

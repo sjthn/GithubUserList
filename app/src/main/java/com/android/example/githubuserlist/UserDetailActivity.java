@@ -20,20 +20,30 @@
  * SOFTWARE.
  */
 
-package com.android.example.parcelabledemo;
+package com.android.example.githubuserlist;
 
-import org.junit.Test;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import static org.junit.Assert.*;
+import com.squareup.picasso.Picasso;
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
-public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+public class UserDetailActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_detail);
+        ImageView avatarImageView = (ImageView) findViewById(R.id.imageview_user_detail_avatar);
+        TextView userNameTextView = (TextView) findViewById(R.id.textview_user_detail_name);
+        TextView userUrlTextView = (TextView) findViewById(R.id.textview_user_detail_url);
+
+        User user = getIntent().getParcelableExtra("user");
+
+        Picasso.with(this).load(user.getAvatarUrl()).into(avatarImageView);
+        userNameTextView.setText(getString(R.string.user_name, user.getLogin()));
+        userUrlTextView.setText(getString(R.string.user_url, user.getHtmlUrl()));
+
     }
 }

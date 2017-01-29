@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.android.example.parcelabledemo;
+package com.android.example.githubuserlist;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

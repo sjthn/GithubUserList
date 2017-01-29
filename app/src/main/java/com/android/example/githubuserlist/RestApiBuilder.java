@@ -20,28 +20,30 @@
  * SOFTWARE.
  */
 
-package com.android.example.parcelabledemo;
+package com.android.example.githubuserlist;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by NIYATI on 1/24/2017.
  */
 
-public class UserList {
-    @SerializedName("items")
-    @Expose
-    private List<User> items = null;
+public class RestApiBuilder {
 
-    public List<User> getItems() {
-        return items;
+    public static final String BASE_URL = "https://api.github.com";
+
+    private Retrofit retrofit;
+
+    public RestApiBuilder() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
     }
 
-    public void setItems(List<User> items) {
-        this.items = items;
+    public RestApiService getService() {
+        return retrofit.create(RestApiService.class);
     }
 
 }
