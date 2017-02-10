@@ -22,7 +22,10 @@
 
 package com.android.example.githubuserlist;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.util.Linkify;
 import android.widget.ImageView;
@@ -47,6 +50,20 @@ public class UserDetailActivity extends AppCompatActivity {
         Picasso.with(this).load(user.getAvatarUrl()).into(avatarImageView);
         userNameTextView.setText(getString(R.string.user_name, user.getLogin()));
         userUrlTextView.setText(getString(R.string.user_url, user.getHtmlUrl()));
-        BetterLinkMovementMethod.linkify(Linkify.WEB_URLS, userUrlTextView);
+        BetterLinkMovementMethod movementMethod = BetterLinkMovementMethod.linkify(Linkify.WEB_URLS, userUrlTextView);
+        movementMethod.setOnLinkClickListener(new BetterLinkMovementMethod.OnLinkClickListener() {
+            @Override
+            public boolean onClick(TextView textView, String url) {
+                getCustomTabIntentInstance().launchUrl(UserDetailActivity.this, Uri.parse(url));
+                return true;
+            }
+        });
     }
+
+    private CustomTabsIntent getCustomTabIntentInstance() {
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        builder.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        return builder.build();
+    }
+
 }
