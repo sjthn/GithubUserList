@@ -24,10 +24,13 @@ package com.android.example.githubuserlist;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.util.Linkify;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import me.saket.bettermovementmethod.BetterLinkMovementMethod;
 
 public class UserDetailActivity extends AppCompatActivity {
 
@@ -44,6 +47,6 @@ public class UserDetailActivity extends AppCompatActivity {
         Picasso.with(this).load(user.getAvatarUrl()).into(avatarImageView);
         userNameTextView.setText(getString(R.string.user_name, user.getLogin()));
         userUrlTextView.setText(getString(R.string.user_url, user.getHtmlUrl()));
-
+        BetterLinkMovementMethod.linkify(Linkify.WEB_URLS, userUrlTextView);
     }
 }
